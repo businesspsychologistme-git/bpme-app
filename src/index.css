@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BPME App Landing Design System - Deep Teal & Light */
+
+@layer base {
+  :root {
+    /* Core palette - Light mode with deep teal accents */
+    --background: 160 15% 96%;
+    --foreground: 192 41% 17%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 192 41% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 192 41% 17%;
+
+    /* Deep Teal primary - #193B3C */
+    --primary: 182 41% 16%;
+    --primary-foreground: 0 0% 96%;
+
+    /* Teal accent - #008080 */
+    --secondary: 180 100% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Light Teal - #6ABBB9 */
+    --accent: 179 36% 57%;
+    --accent-foreground: 192 41% 17%;
+
+    --muted: 160 10% 90%;
+    --muted-foreground: 192 20% 40%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 160 15% 85%;
+    --input: 160 15% 85%;
+    --ring: 180 100% 25%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --glow-primary: 182 41% 16%;
+    --glow-secondary: 180 100% 25%;
+    --glass: 180 20% 95%;
+    --glass-border: 180 20% 80%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(circle farthest-corner at 45% 20%, hsla(179 36% 57% / 0.2) 0%, hsl(0 0% 96%) 50%, hsl(170 30% 95%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(182 41% 16%) 0%, hsl(180 100% 25%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.8) 0%, hsla(0 0% 100% / 0.6) 100%);
+    --gradient-radial: radial-gradient(ellipse at 50% 0%, hsla(180 100% 25% / 0.15) 0%, transparent 60%);
+    --gradient-glow: radial-gradient(ellipse at center, hsla(180 100% 25% / 0.2) 0%, transparent 70%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px -15px hsl(180 100% 25% / 0.3);
+    --shadow-card: 0 25px 50px -12px hsl(192 41% 17% / 0.1);
+    --shadow-float: 0 30px 80px -20px hsl(192 41% 17% / 0.15);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 192 41% 17%;
+    --sidebar-primary: 182 41% 16%;
+    --sidebar-primary-foreground: 0 0% 96%;
+    --sidebar-accent: 160 10% 95%;
+    --sidebar-accent-foreground: 192 41% 17%;
+    --sidebar-border: 160 15% 85%;
+    --sidebar-ring: 180 100% 25%;
+  }
+
+  .dark {
+    /* Dark mode - Deep emerald */
+    --background: 182 41% 10%;
+    --foreground: 0 0% 96%;
+
+    --card: 182 35% 14%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 182 35% 14%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 179 36% 57%;
+    --primary-foreground: 182 41% 10%;
+
+    --secondary: 180 100% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 179 36% 57%;
+    --accent-foreground: 182 41% 10%;
+
+    --muted: 182 30% 20%;
+    --muted-foreground: 180 15% 60%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 182 30% 25%;
+    --input: 182 30% 25%;
+    --ring: 179 36% 57%;
+
+    --sidebar-background: 182 35% 12%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 179 36% 57%;
+    --sidebar-primary-foreground: 182 41% 10%;
+    --sidebar-accent: 182 30% 20%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 182 30% 25%;
+    --sidebar-ring: 179 36% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border) / 0.5);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Floating animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Glow effect */
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Teal gradient text */
+  .text-teal {
+    color: hsl(var(--secondary));
+  }
+
+  /* Background patterns */
+  .bg-grid {
+    background-image: 
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Hero gradient background */
+  .bg-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Hero glow orbs */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+
+  .glow-orb-primary {
+    background: hsl(var(--primary));
+  }
+
+  .glow-orb-secondary {
+    background: hsl(var(--secondary));
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Phone mockup shine */
+  .phone-shine {
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      hsla(0, 0%, 100%, 0.1) 45%,
+      hsla(0, 0%, 100%, 0.2) 50%,
+      hsla(0, 0%, 100%, 0.1) 55%,
+      transparent 60%
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
