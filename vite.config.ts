@@ -11,6 +11,13 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      "/api/bubble": {
+        target: "https://businesspsychologist.me",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/bubble/, "/api/1.1/obj"),
+      },
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

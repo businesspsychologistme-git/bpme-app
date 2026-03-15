@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+output.txt
+
+# Utility scripts
+checkSchema.js
+fetchSwagger.js
+insertBlog.js
